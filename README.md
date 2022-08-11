@@ -13,3 +13,7 @@ xdg-mime default pcmanfm.desktop inode/directory application/x-gnome-saved-searc
 The command ```fdisk -l``` lists all disk partitions available. When desired partition is chosen, e.g. /dev/sdb2, create directory where it will be mounted: ```sudo mkdir /mnt/disk1```; then mount it with ```sudo mount -t auto -v /dev/sdb2 /mnt/disk1/```.
 
 Unmount it with ```sudo umount /dev/sdb2 -l```
+
+- Create symbolic link of all files in a directory (if you're in the actual directory):
+`ln -s -r * ~/.local/bin/`
+This will link all files in directory to the path ~/.local/bin.
