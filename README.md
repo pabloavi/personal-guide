@@ -17,3 +17,7 @@ Unmount it with ```sudo umount /dev/sdb2 -l```
 - Create symbolic link of all files in a directory (if you're in the actual directory):
 `ln -s -r * ~/.local/bin/`
 This will link all files in directory to the path ~/.local/bin.
+
+- Install ueberzug to preview images in ranger:
+Install dependencies: `sudo dnf install python3-devel libXxf86vm-devel`
+Install ueberzug: `pip install ueberzug`
