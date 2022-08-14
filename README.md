@@ -26,3 +26,7 @@ This will link all files in directory to the path ~/.local/bin.
 Install dependencies: `sudo dnf install python3-devel libXxf86vm-devel`
 
 Install ueberzug: `pip install ueberzug`
+
+### Qalculate use period (.) instead of comma (,):
+
+In file `~/.config/qalculate/qalc.cfg`, write `decimal_comma=0`. Set it to `-1` to ignore setting (use system's locale) or to `1` (to enable .).
