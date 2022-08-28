@@ -30,3 +30,11 @@ Install ueberzug: `pip install ueberzug`
 ### Qalculate use period (.) instead of comma (,):
 
 In file `~/.config/qalculate/qalc.cfg`, write `decimal_comma=0`. Set it to `-1` to ignore setting (use system's locale) or to `1` (to enable .).
+
+### Rename Enter key
+
+Enter key was named `KP_Enter`, instead of `Return`, so with command (requires xmodmap)
+```
+xmodmap -e "keysym KP_Enter = Return"
+```
+it's now solved. 
