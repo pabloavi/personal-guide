@@ -38,3 +38,9 @@ Enter key was named `KP_Enter`, instead of `Return`, so with command (requires x
 xmodmap -e "keysym KP_Enter = Return"
 ```
 it's now solved. 
+
+### Wayland
+
+#### Waybar
+
+To install waybar git version, `git clone` waybar repository, `meson build -Dexperimental=true` and `ninja build+`ninja install`.  
