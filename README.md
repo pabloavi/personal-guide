@@ -43,4 +43,4 @@ it's now solved.
 
 #### Waybar
 
-To install waybar git version, `git clone` waybar repository, `meson build -Dexperimental=true` and `ninja build+`ninja install`.  
+To install waybar git version, `git clone` waybar repository, `meson build -Dexperimental=true` and `ninja build` +  install`.  
