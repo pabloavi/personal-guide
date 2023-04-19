@@ -27,6 +27,14 @@ Install dependencies: `sudo dnf install python3-devel libXxf86vm-devel`
 
 Install ueberzug: `pip install ueberzug`
 
+Now that it is unmaintained, this is how to install it:
+```bash
+sudo apt install libxext-dev libx11-dev -y
+git clone --depth 1 --branch 18.1.9 https://github.com/seebye/ueberzug.git
+cd ueberzug
+sudo python3 setup.py install
+```
+
 ### Qalculate use period (.) instead of comma (,):
 
 In file `~/.config/qalculate/qalc.cfg`, write `decimal_comma=0`. Set it to `-1` to ignore setting (use system's locale) or to `1` (to enable .).
