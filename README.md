@@ -52,3 +52,11 @@ it's now solved.
 #### Waybar
 
 To install waybar git version, `git clone` waybar repository, `meson build -Dexperimental=true` and `ninja build` +  install`.  
+
+## Arch Linux
+
+### Update pacman mirrors
+
+```
+sudo reflector --country 'Spain' --latest 5 --age 2 --fastest 5 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+```
