@@ -60,3 +60,9 @@ To install waybar git version, `git clone` waybar repository, `meson build -Dexp
 ```
 sudo reflector --country 'Spain' --latest 5 --age 2 --fastest 5 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 ```
+
+### Replace two colors in svg
+
+```
+cp calendar.svg calendar2.svg; sed -i 's/#ff0000/#5EAAE8/g' calendar2.svg; sed -i 's/#00ffff/#AAC690/g' calendar2.svg
+```
