@@ -73,3 +73,10 @@ Use the link:
 ```
 https://danilw.github.io/blog/nvidia_linux_gpu_video_accceleration_webbrowsers/#short-insrtuction-to-nvidia-vaapi-driver
 ```
+
+### Troubleshoot `xdg-desktop-portal` issues
+
+For example, no file chooser dialog opens in flatpak apps:
+```
+/usr/lib64/xdg-desktop-portal -rv
+```
