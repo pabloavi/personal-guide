@@ -70,9 +70,8 @@ cp calendar.svg calendar2.svg; sed -i 's/#ff0000/#5EAAE8/g' calendar2.svg; sed -
 ### Enable hw acceleration for NVIDIA:
 
 Use the link:
-```
+
 https://danilw.github.io/blog/nvidia_linux_gpu_video_accceleration_webbrowsers/#short-insrtuction-to-nvidia-vaapi-driver
-```
 
 ### Troubleshoot `xdg-desktop-portal` issues
 
