@@ -80,3 +80,11 @@ For example, no file chooser dialog opens in flatpak apps:
 ```
 /usr/lib64/xdg-desktop-portal -rv
 ```
+
+### No wayland sessions show in gdm
+
+Probably related to NVIDIA card and using `optimus-manager`. To fix it (source https://www.reddit.com/r/debian/comments/149jx0y/comment/jo62jsk/?utm_source=share&utm_medium=mweb3x&utm_name=mweb3xcss&utm_term=1&utm_content=share_button):
+
+1. check `/etc/gdm3/custom.conf`, if there's a line `#WaylandEnable=false`, it needs to be uncommented and set to `true`.
+
+2. check `/usr/lib/udev/rules.d/61-gdm.rules`, comment these lines: `#RUN+="/usr/lib/gdm-runtime-config set daemon PreferredDisplayServer xorg"` and `#RUN+="/usr/lib/gdm-runtime-config set daemon WaylandEnable false"`
