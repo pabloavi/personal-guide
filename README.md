@@ -87,3 +87,16 @@ Probably related to NVIDIA card and using `optimus-manager`. To fix it (source h
 1. check `/etc/gdm3/custom.conf`, if there's a line `#WaylandEnable=false`, it needs to be uncommented and set to `true`.
 
 2. check `/usr/lib/udev/rules.d/61-gdm.rules`, comment these lines: `#RUN+="/usr/lib/gdm-runtime-config set daemon PreferredDisplayServer xorg"` and `#RUN+="/usr/lib/gdm-runtime-config set daemon WaylandEnable false"`
+3. 
+
+### Enable launch using discrete graphics in GNOME
+
+When done, only right-clicking in application is needed to launch with `prime-run`. First, install `switcheroo-control`:
+```
+sudo pacman -S switcheroo-control
+```
+Then, just run
+```
+systemctl enable switcheroo-control.service
+systemctl start switcheroo-control.service
+```
