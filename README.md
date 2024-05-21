@@ -125,3 +125,77 @@ case "$1" in
         ;;
 esac
 ```
+
+Thing above didn't work always.
+
+### NVIDIA as primary GPU in GNOME
+
+One can use NVIDIA as primary GPU in GNOME (`mutter`) using a `udev` rule: in file `/usr/lib/udev/rules.d/61-mutter-primary-gpu.rules`
+```
+ENV{DEVNAME}=="/dev/dri/card1", TAG+="mutter-device-preferred-primary"
+```
+
+# Suspend using NVIDIA as primary GNOME GPU
+
+Suspend works really bad in this scenario, so I tried the following:
+
+`gnome-shell` is trying to talk to the NVIDIA driver after it has already gone into suspend, so it can’t respond. Linux tries to freeze the task, but fails because `gnome-shell` is waiting for a response from the driver and can’t be frozen.
+
+The solution is to manually suspend `gnome-shell` using the STOP signal before the NVIDIA driver goes to suspend. Then use the `CONT` signal on resume.
+
+`/usr/local/bin/suspend-gnome-shell.sh`
+```
+#!/bin/bash
+
+case "$1" in
+    suspend)
+        killall -STOP gnome-shell
+        ;;
+    resume)
+        killall -CONT gnome-shell
+        ;;
+esac
+```
+
+`/etc/systemd/system/gnome-shell-suspend.service`
+```
+[Unit]
+Description=Suspend gnome-shell
+Before=systemd-suspend.service
+Before=systemd-hibernate.service
+Before=nvidia-suspend.service
+Before=nvidia-hibernate.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/suspend-gnome-shell.sh suspend
+
+[Install]
+WantedBy=systemd-suspend.service
+WantedBy=systemd-hibernate.service
+```
+
+`/etc/systemd/system/gnome-shell-resume.service`
+```
+[Unit]
+Description=Resume gnome-shell
+After=systemd-suspend.service
+After=systemd-hibernate.service
+After=nvidia-resume.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/suspend-gnome-shell.sh resume
+
+[Install]
+WantedBy=systemd-suspend.service
+WantedBy=systemd-hibernate.service
+```
+Then just enable the two new systemd units:
+```
+systemctl daemon-reload
+systemctl enable gnome-shell-suspend
+systemctl enable gnome-shell-resume
+```
+This should interrupt gnome-shell in time so it’s not trying to access the graphics hardware. It worked for me.
+
