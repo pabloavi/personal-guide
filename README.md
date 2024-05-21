@@ -156,6 +156,10 @@ case "$1" in
         ;;
 esac
 ```
+As this is a script it needs executable permissions:
+```
+sudo chmod +x /usr/local/bin/suspend-gnome-shell.sh
+```
 
 `/etc/systemd/system/gnome-shell-suspend.service`
 ```
