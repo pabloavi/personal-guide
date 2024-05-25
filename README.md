@@ -135,6 +135,16 @@ One can use NVIDIA as primary GPU in GNOME (`mutter`) using a `udev` rule: in fi
 ENV{DEVNAME}=="/dev/dri/card1", TAG+="mutter-device-preferred-primary"
 ```
 
+Alternatively, one can choose the card by pci (so that it doesn't fail). The `tag` is given by
+```
+udevadm info --query=property --property=ID_PATH_TAG /dev/dri/card1
+```
+and then just set it to `ENV{DEVLINKS}=="/dev/dri/by-path/pci-<card>-card", TAG+="mutter-device-preferred-primary"`, which would be
+```
+ENV{DEVNAME}=="/dev/dri/by-path/pci-0000\:00\:02.0-card",
+TAG+="mutter-device-preferred-primary"
+```
+
 # Suspend using NVIDIA as primary GNOME GPU
 
 Suspend works really bad in this scenario, so I tried the following:
