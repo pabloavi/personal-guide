@@ -213,3 +213,8 @@ systemctl enable gnome-shell-resume
 ```
 This should interrupt gnome-shell in time so it’s not trying to access the graphics hardware. It worked for me.
 
+
+### Crear una máquina virtual (VM) de Nixos
+
+Al crear la máquina virtual de `Nixos` en `virt-manager`, darle a personalizar antes de crear la VM. En el menú recién abierto, poner el arranque en UEFI (NO EN BIOS).
+
