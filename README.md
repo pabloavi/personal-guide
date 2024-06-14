@@ -218,7 +218,10 @@ This should interrupt gnome-shell in time so it’s not trying to access the gra
 
 Al crear la máquina virtual de `Nixos` en `virt-manager`, darle a personalizar antes de crear la VM. En el menú recién abierto, poner el arranque en UEFI (NO EN BIOS).
 
+### Winapps
+
 Otros errores:
 - El servicio `iptables` no estaba activado, así que la conexión no funcionaba. Para habilitarlo,
-```sudo systemctl enable iptables.service``` 
+```sudo systemctl enable iptables.service```
+- Rendimiento muy malo: usar las mejoras de [farmerbb](https://www.reddit.com/r/ChromeOSFlex/comments/ucno4b/comment/i6cviv8/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
 
