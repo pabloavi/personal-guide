@@ -7,7 +7,9 @@
 This repository aims to keep track of every installation/process I make in my setups. This way, I can always come here and check how I did something.
 
 
-# Set pcmanfm as default file manager:
+# Personal guide
+
+## Set pcmanfm as default file manager:
 
 Execute
 ```
@@ -15,7 +17,7 @@ xdg-mime default pcmanfm.desktop inode/directory application/x-gnome-saved-searc
 ```
 
 
-# Mount partition
+## Mount partition
 
 
 The command `fdisk -l` lists all disk partitions available. When desired partition is chosen, e.g. `/dev/sdb2`, create directory where it will be mounted: 
@@ -32,7 +34,7 @@ sudo umount /deb/sdb2 -l
 ```
 
 
-# Create symbolic link of all files in a directory (if you're in the actual directory):
+## Create symbolic link of all files in a directory (if you're in the actual directory):
 
 
 The command 
@@ -43,7 +45,7 @@ will link all files in directory to the path `~/.local/bin`.
 
 
 
-# Install ueberzug to preview images in ranger (Fedora):
+## Install ueberzug to preview images in ranger (Fedora):
 
 
 - When it was maintained:
@@ -66,13 +68,13 @@ sudo python3 setup.py install
 ```
 
 
-# Qalculate use period (.) instead of comma (,):
+## Qalculate use period (.) instead of comma (,):
 
 
 In file `~/.config/qalculate/qalc.cfg`, write `decimal_comma=0`. Set it to `-1` to ignore setting (use system's locale) or to `1` (to enable .).
 
 
-# Rename Enter key
+## Rename Enter key
 
 
 Enter key was named `KP_Enter`, instead of `Return`, so with command (requires `xmodmap`)
@@ -82,17 +84,17 @@ xmodmap -e "keysym KP_Enter = Return"
 it's now solved. 
 
 
-# Install `waybar` from source
+## Install `waybar` from source
 
 
 To install `waybar` git version, `git clone` waybar repository, `meson build -Dexperimental=true` and `ninja build` +  `install`.  
 
 
-# Arch Linux specific commands
+## Arch Linux specific commands
 
 
 
-## Update pacman mirrors
+### Update pacman mirrors
 
 
 ```bash
@@ -100,20 +102,20 @@ sudo reflector --country 'Spain' --latest 5 --age 2 --fastest 5 --protocol https
 ```
 
 
-# Replace two colors in svg
+## Replace two colors in svg
 
 ```bash
 cp calendar.svg calendar2.svg; sed -i 's/#ff0000/#5EAAE8/g' calendar2.svg; sed -i 's/#00ffff/#AAC690/g' calendar2.svg
 ```
 
 
-# Enable hw acceleration for NVIDIA:
+## Enable hw acceleration for NVIDIA:
 
 
 Use this [link]://danilw.github.io/blog/nvidia_linux_gpu_video_accceleration_webbrowsers/#short-insrtuction-to-nvidia-vaapi-driver)
 
 
-# Troubleshoot `xdg-desktop-portal` issues
+## Troubleshoot `xdg-desktop-portal` issues
 
 
 For example, no file chooser dialog opens in flatpak apps:
@@ -122,7 +124,7 @@ For example, no file chooser dialog opens in flatpak apps:
 ```
 
 
-# No wayland sessions show in gdm
+## No wayland sessions show in gdm
 
 
 Probably related to NVIDIA card and using `optimus-manager`. To fix it ([source]://www.reddit.com/r/debian/comments/149jx0y/comment/jo62jsk/?utm_source=share&utm_medium=mweb3x&utm_name=mweb3xcss&utm_term=1&utm_content=share_button)):
@@ -130,7 +132,7 @@ Probably related to NVIDIA card and using `optimus-manager`. To fix it ([source]
 2. check `/usr/lib/udev/rules.d/61-gdm.rules`, comment these lines: `#RUN+="/usr/lib/gdm-runtime-config set daemon PreferredDisplayServer xorg"` and `#RUN+="/usr/lib/gdm-runtime-config set daemon WaylandEnable false"`
 
 
-# Enable launch using discrete graphics in GNOME
+## Enable launch using discrete graphics in GNOME
 
 
 When done, only right-clicking in application is needed to launch with `prime-run`. First, install `switcheroo-control`:
@@ -145,7 +147,7 @@ systemctl start switcheroo-control.service
 In fedora, it is included by default
 
 
-# Black wallpaper after suspend on GNOME
+## Black wallpaper after suspend on GNOME
 
 
 As stated [here]://forums.developer.nvidia.com/t/fixed-suspend-resume-issues-with-the-driver-version-470/187150/3) the workaround is: 
@@ -173,7 +175,7 @@ esac
 Thing above didn't work always.
 
 
-# NVIDIA as primary GPU in GNOME
+## NVIDIA as primary GPU in GNOME
 
 
 One can use NVIDIA as primary GPU in GNOME (`mutter`) using a `udev` rule: in file `/usr/lib/udev/rules.d/61-mutter-primary-gpu.rules`
@@ -191,7 +193,7 @@ TAG+="mutter-device-preferred-primary"
 ```
 
 
-# using NVIDIA as primary GNOME GPU
+## using NVIDIA as primary GNOME GPU
 
 
 Suspend works really bad in this scenario, so I tried the following:
@@ -261,13 +263,13 @@ systemctl enable gnome-shell-resume
 This should interrupt gnome-shell in time so it’s not trying to access the graphics hardware. It worked for me.
 
 
-# Crear una máquina virtual (VM) de Nixos
+## Crear una máquina virtual (VM) de Nixos
 
 
 Al crear la máquina virtual de `Nixos` en `virt-manager`, darle a personalizar antes de crear la VM. En el menú recién abierto, poner el arranque en UEFI (NO EN BIOS).
 
 
-# Winapps
+## Winapps
 
 
 Algunos errores:
