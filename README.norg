@@ -9,9 +9,10 @@ version: 0.1
 
 .toc
 
+* Personal guide
+
 This repository aims to keep track of every installation/process I make in my setups. This way, I can always come here and check how I did something.
 
-* Personal guide
 ** Set pcmanfm as default file manager:
   Execute
   @code bash
