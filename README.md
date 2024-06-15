@@ -114,7 +114,7 @@ cp calendar.svg calendar2.svg; sed -i 's/#ff0000/#5EAAE8/g' calendar2.svg; sed -
 ## Enable hw acceleration for NVIDIA:
 
 
-Use this [link]://danilw.github.io/blog/nvidia_linux_gpu_video_accceleration_webbrowsers/#short-insrtuction-to-nvidia-vaapi-driver)
+Use this [link](https://danilw.github.io/blog/nvidia_linux_gpu_video_accceleration_webbrowsers/#short-insrtuction-to-nvidia-vaapi-driver)
 
 
 ## Troubleshoot `xdg-desktop-portal` issues
@@ -129,7 +129,7 @@ For example, no file chooser dialog opens in flatpak apps:
 ## No wayland sessions show in gdm
 
 
-Probably related to NVIDIA card and using `optimus-manager`. To fix it ([source]://www.reddit.com/r/debian/comments/149jx0y/comment/jo62jsk/?utm_source=share&utm_medium=mweb3x&utm_name=mweb3xcss&utm_term=1&utm_content=share_button)):
+Probably related to NVIDIA card and using `optimus-manager`. To fix it ([source](https://www.reddit.com/r/debian/comments/149jx0y/comment/jo62jsk/?utm_source=share&utm_medium=mweb3x&utm_name=mweb3xcss&utm_term=1&utm_content=share_button)):
 1. check `/etc/gdm3/custom.conf`, if there's a line `#WaylandEnable=false`, it needs to be uncommented and set to `true`.
 2. check `/usr/lib/udev/rules.d/61-gdm.rules`, comment these lines: `#RUN+="/usr/lib/gdm-runtime-config set daemon PreferredDisplayServer xorg"` and `#RUN+="/usr/lib/gdm-runtime-config set daemon WaylandEnable false"`
 
@@ -152,7 +152,7 @@ In fedora, it is included by default
 ## Black wallpaper after suspend on GNOME
 
 
-As stated [here]://forums.developer.nvidia.com/t/fixed-suspend-resume-issues-with-the-driver-version-470/187150/3) the workaround is: 
+As stated [here](https://forums.developer.nvidia.com/t/fixed-suspend-resume-issues-with-the-driver-version-470/187150/3) the workaround is: 
 ```bash
 sudo systemctl stop nvidia-suspend.service
 sudo systemctl stop nvidia-hibernate.service
@@ -279,4 +279,4 @@ Algunos errores:
 ```bash
 sudo systemctl enable iptables.service
 ```
-- Rendimiento muy malo: usar las mejoras de [farmerbb]://www.reddit.com/r/ChromeOSFlex/comments/ucno4b/comment/i6cviv8/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
+- Rendimiento muy malo: usar las mejoras de [farmerbb](https://www.reddit.com/r/ChromeOSFlex/comments/ucno4b/comment/i6cviv8/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
