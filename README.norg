@@ -259,3 +259,6 @@ This repository aims to keep track of every installation/process I make in my se
   @code 
   options nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/var/tmp  
   @end
+
+* NixOS: crear/instalar un paquete propio
+  - Seguir {https://unix.stackexchange.com/a/717169}[este enlace].
