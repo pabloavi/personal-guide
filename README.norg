@@ -245,3 +245,17 @@ This repository aims to keep track of every installation/process I make in my se
   sudo systemctl enable iptables.service
   @end
   - Rendimiento muy malo: usar las mejoras de {https://www.reddit.com/r/ChromeOSFlex/comments/ucno4b/comment/i6cviv8/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button}[farmerbb]
+
+* Compartir una carpeta con la VM de Windows
+  Seguir los pasos de {https://askubuntu.com/a/1513697}[askubuntu].
+
+* Nuevo intento de suspender en NVIDIA
+  - {https://www.reddit.com/r/kde/comments/131jyog/comment/ji2vrsx/?utm_source=share&utm_medium=web2x&context=3}[Fuente].
+  - Ejecutar
+  @code bash
+  sudo systemctl enable nvidia-resume
+  @end
+  - Crear el archivo `/etc/modprobe.d/nvidia-power-management.conf` y escribir
+  @code 
+  options nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/var/tmp  
+  @end
