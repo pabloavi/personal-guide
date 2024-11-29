@@ -285,3 +285,28 @@ sudo systemctl enable iptables.service
 # Compartir una carpeta con la VM de Windows
 
 Seguir los pasos de [askubuntu](https://askubuntu.com/a/1513697).
+
+
+# Nuevo intento de suspender en NVIDIA
+
+- [Fuente](https://www.reddit.com/r/kde/comments/131jyog/comment/ji2vrsx/?utm_source=share&utm_medium=web2x&context=3).
+- Ejecutar
+```bash
+sudo systemctl enable nvidia-resume
+```
+- Crear el archivo `/etc/modprobe.d/nvidia-power-management.conf` y escribir
+```
+options nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/var/tmp  
+```
+
+
+# NixOS: crear/instalar un paquete propio
+
+- Seguir [este enlace](https://unix.stackexchange.com/a/717169).
+
+
+# Repair mp4 video to send it over whatsapp
+
+```bash
+ffmpeg -i original_video.mp4 -c:v libx264 -profile:v baseline -level 3.0 -pix_fmt yuv420p sendable_video.mp4
+```

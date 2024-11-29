@@ -262,3 +262,8 @@ This repository aims to keep track of every installation/process I make in my se
 
 * NixOS: crear/instalar un paquete propio
   - Seguir {https://unix.stackexchange.com/a/717169}[este enlace].
+
+* Repair mp4 video to send it over whatsapp
+  @code bash
+  ffmpeg -i original_video.mp4 -c:v libx264 -profile:v baseline -level 3.0 -pix_fmt yuv420p sendable_video.mp4
+  @end
